@@ -3,9 +3,12 @@ const dotenv = require('dotenv')
 const morgan = require('morgan')
 const path = require('path')
 const app = express()
+const expressLayouts = require('express-ejs-layouts')
 
 app.set('view engine', 'ejs')
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, '/views'))
+app.use(expressLayouts)
+app.set('layout', 'views/layouts')
 
 // LOAD CONFIG
 
