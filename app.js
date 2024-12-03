@@ -2,13 +2,15 @@ const express = require('express')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const path = require('path')
+const engine = require('ejs-mate')
 const app = express()
-const expressLayouts = require('express-ejs-layouts')
 
+// SETTING UP EJS FOR LAYOUTS AND PARTIALS
+
+app.engine('ejs', engine)
 app.set('view engine', 'ejs')
-app.set('views', path.join(__dirname, '/views'))
-app.use(expressLayouts)
-app.set('layout', 'views/layouts')
+app.set('views', path.join('views'))
+app.set('layout', './views/layouts')
 
 // LOAD CONFIG
 
